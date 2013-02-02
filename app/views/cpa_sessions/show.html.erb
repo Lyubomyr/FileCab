@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @cpa_session.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @cpa_session.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_cpa_session_path(@cpa_session) %> |
+<%= link_to 'Back', cpa_sessions_path %>

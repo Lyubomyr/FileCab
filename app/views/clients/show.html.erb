@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<p>
+  Hello <%= current_client.first %>    <%= current_client.last %>. <br>   <br>
+  On this page you can create new Documents and your CPA will receive it. <br>
+  <%= link_to "Create new document", new_client_document_path(current_client)%>  <br> <br>
+  Also, below you can find all your documents, sorted by years.          <br>  <br>
+  Client Documents: <br>
+  <%  current_client.documents.select("DISTINCT year").each do |doc| %>
+    <%= link_to doc.year , action: :pass_year, year: doc.year, user: "client" %>            <br>      <br>
+  <% end %>
+     <br><br>
+  CPA Documents:  <br>
+  <%  @cpa.documents.select("DISTINCT year").each do |doc| %>
+      <%= link_to doc.year , action: :pass_year, year: doc.year, user: "ccpa" %>            <br>      <br>
+  <% end %>
+
+</p>

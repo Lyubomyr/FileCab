@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= link_to @document.name.to_s.from(26),:action => :download, :file_name => @document.name_url %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @document.year %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @document.description %>
+</p>
+
+
+<%= link_to 'Back', :back %>

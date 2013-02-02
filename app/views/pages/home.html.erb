@@ -1,0 +1,24 @@
+<h1>Home Page</h1>
+
+<h3>Welcome! Use the    links in the right side for log in. </br>
+  </br>
+  Credentials:                              </br>
+  </br>
+  client1@gmail.com client1                  </br>
+  client2@gmail.com client2                 </br>
+  </br>
+  cpa1@gmail.com cpa1                      </br>
+  cpa2@gmail.com cpa2                      </br>       </br>
+  Client1 connected to CPA1</br>
+  Client2 connected to CPA2</br>     </br>
+
+  ENJOY! <br>
+  <% if current_client %>
+    <%= link_to "Go to File Cabinet", client_path(current_client) %>
+  <% end %>
+
+  <% if current_cpa %>
+      <%= link_to "Go to File Cabinet", cpa_path(current_cpa) %>
+  <% end %>
+</h3>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Filecab</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+ <div id="main">
+   <div id="left">
+     <h1><%= link_to "File Cabinet Project", root_path %>  <h1>
+
+     <%= yield %>
+   </div>
+
+   <div id="right">
+     <div id="client_nav">
+       <% if (!current_client && !current_cpa) %>
+           <%= link_to "Log in as Client", client_login_path %>    </br>
+           <%= link_to "Log in as CPA", cpa_login_path %>
+       <% elsif current_client %>
+           <%= link_to "Logout", client_logout_path %>
+       <% elsif current_cpa %>
+           <%= link_to "Logout", cpa_logout_path %>
+       <% end %>
+     </div>
+   </div>
+ </div>
+
+</body>
+
+</html>
