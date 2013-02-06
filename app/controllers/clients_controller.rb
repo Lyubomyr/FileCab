@@ -9,10 +9,4 @@ class ClientsController < ApplicationController
     end
   end
 
-  def pass_year
-    session[current_user.id] = params[:year]
-    session[current_user.email] = params[:user]
-    redirect_to client_documents_path(current_client)
-  end
-
 end

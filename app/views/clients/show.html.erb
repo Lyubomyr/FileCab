@@ -6,12 +6,14 @@
   Also, below you can find all your documents, sorted by years.          <br>  <br>
   Client Documents: <br>
   <%  current_client.documents.select("DISTINCT year").each do |doc| %>
-    <%= link_to doc.year , action: :pass_year, year: doc.year, user: "client" %>            <br>      <br>
+      <%= link_to doc.year, client_documents_path(current_client, year: doc.year, user: "client") %>  <br>      <br>
   <% end %>
+
      <br><br>
+
   CPA Documents:  <br>
   <%  @cpa.documents.select("DISTINCT year").each do |doc| %>
-      <%= link_to doc.year , action: :pass_year, year: doc.year, user: "ccpa" %>            <br>      <br>
+      <%= link_to doc.year, client_documents_path(current_client, year: doc.year, user: "cpa") %>       <br>      <br>
   <% end %>
 
 </p>

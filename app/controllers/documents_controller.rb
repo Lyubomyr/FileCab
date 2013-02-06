@@ -2,16 +2,20 @@ class DocumentsController < ApplicationController
 
 
   def index
-    year = session[current_user.id]
-    user = session[current_user.email]
-    if user == "client"
-      @documents = current_client.documents.where("year=?",year)
-    elsif user == "ccpa"
-      @documents = current_client.cpa.documents.where("year=?",year)
-    elsif user == "cpa"
-      @documents = current_cpa.documents.where("year=?",year)
+    year = params[:year]
+    user = params[:user]
+    if current_client
+        if user == "client"
+          @documents = current_client.documents.where("year=?",year)
+        else
+          @documents = current_client.cpa.documents.where("year=?",year)
+        end
     else
-      @documents = current_cpa.clients.first.documents.where("year=?",year)
+        if user == "cpa"
+          @documents = current_cpa.documents.where("year=?",year)
+        else
+          @documents = current_cpa.clients.first.documents.where("year=?",year)
+        end
     end
 
     respond_to do |format|

@@ -7,13 +7,13 @@
 
   CPA Documents: <br>
   <%  current_cpa.documents.select("DISTINCT year").each do |doc| %>
-      <%= link_to doc.year , action: :pass_year, cpa_year: doc.year, cpa_user: "cpa" %>            <br>      <br>
+      <%= link_to doc.year, cpa_documents_path(current_cpa, year: doc.year, user: "cpa") %>           <br>      <br>
   <% end %>
 
   <br><br>
 
   Clients Documents:  <br>
   <%  @client.documents.select("DISTINCT year").each do |doc| %>
-      <%= link_to doc.year , action: :pass_year, cpa_year: doc.year, cpa_user: "cclient" %>            <br>      <br>
+      <%= link_to doc.year, cpa_documents_path(current_cpa, year: doc.year, user: "client") %>           <br>   <br>
   <% end %>
 </p>
